@@ -1,0 +1,171 @@
+/* Reset básico */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f3f4f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #0077cc, #005fa3);
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 5px solid #003d70;
+}
+
+header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 5px solid #0077cc;
+}
+
+.profile h2 {
+    font-size: 2em;
+    color: #0077cc;
+    margin-bottom: 15px;
+}
+
+.profile p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Resetando margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do body */
+body {
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    background: linear-gradient(to right, #f4f4f4, #e6e9f0); /* Gradiente suave */
+    color: #008cff;
+    padding-bottom: 50px; /* Para evitar que o conteúdo fique escondido atrás do rodapé fixo */
+}
+
+/* Estilo do header */
+header {
+    background: linear-gradient(135deg, #008cff, #004aad); 
+    color: white;
+    padding: 20px 0; 
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Animação para o nome do psicólogo */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header .titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; 
+    font-weight: bold;
+    color: white; 
+    letter-spacing: 3px;
+    animation: slideIn 1s ease-out forwards; /* Animação de entrada */
+}
+
+header h1 {
+    font-size: 4rem; 
+    font-weight: 300;
+    color: white; 
+    margin-top: 10px;
+    animation: slideIn 1s ease-out forwards 0.5s; /* Animação do nome de Alex, com delay */
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 30px;  
+    background-color: #008cff;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    border-radius: 0;  
+}
+
+nav ul li a:hover {
+    background-color: #004aad;
+    transform: scale(1.1);
+}
+
+/* Estilo do rodapé */
+footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    bottom: 0;
+    width: 100%;
+
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Adicionando fontes e ícones */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');

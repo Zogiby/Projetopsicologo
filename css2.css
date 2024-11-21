@@ -1,0 +1,261 @@
+/* Resetando margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do body */
+body {
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    background: linear-gradient(to right, #f4f4f4, #e6e9f0); 
+    color: #008cff;
+    padding-bottom: 50px; /* Para evitar que o conteúdo fique escondido atrás do rodapé fixo */
+}
+
+/* Estilo do header */
+header {
+    background: linear-gradient(135deg, #008cff, #004aad);
+    color: white;
+    padding: 20px 0; 
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Animação para o nome do psicólogo */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header .titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white; 
+    letter-spacing: 3px;
+    animation: slideIn 1s ease-out forwards; 
+}
+
+header h1 {
+    font-size: 4rem; 
+    font-weight: 300;
+    color: white; 
+    margin-top: 10px;
+    animation: slideIn 1s ease-out forwards 0.5s; /* Animação do nome de Alex, com delay */
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 30px;  
+    background-color: #008cff;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    border-radius: 0;  
+}
+
+nav ul li a:hover {
+    background-color: #004aad;
+    transform: scale(1.1);
+}
+.caixa-formulario, .caixa-obrigado {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    text-align: center;
+    width: 500px;
+    justify-content: center;
+}
+
+.caixa-formulario h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+form input, form button {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #003f7f;
+}
+
+.botao-home {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 20px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.botao-home:hover {
+    background: #0056b3;
+}
+
+
+header {
+    background: linear-gradient(135deg, #008cff, #004aad); 
+    color: white;
+    padding: 40px 0; 
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Animação para o nome do psicólogo */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header .titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; 
+    font-weight: bold;
+    color: white; 
+    letter-spacing: 3px;
+    animation: slideIn 1s ease-out forwards; 
+}
+
+header h1 {
+    font-size: 4rem; 
+    font-weight: 300;
+    color: white; 
+    margin-top: 10px;
+    animation: slideIn 1s ease-out forwards 0.5s; /* Animação do nome de Alex, com delay */
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 30px;  
+    background-color: #008cff;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    border-radius: 0;  
+}
+
+nav ul li a:hover {
+    background-color: #004aad;
+    transform: scale(1.1);
+}
+
+/* Estilo das seções principais */
+main {
+    padding: 40px;
+    background-color: white;
+}
+
+main section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+main p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Adicionando fontes e ícones */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
