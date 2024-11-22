@@ -1,13 +1,12 @@
-
 <?php
-include_once "config.php";
+include 'config.php';
 session_start();
 
 $error_message = "";
- 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['nome'];
-    $password = $_POST['password'];
+    $username = $_POST['username']; 
+    $password = $_POST['password']; 
 
     $sql = "SELECT id, username, password FROM Users WHERE username = ?";
     $stmt = $conn->prepare($sql);
@@ -27,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error_message = "Senha incorreta.";
         }
     } else {
-        $error_message = " Usuário não encontrado.";
+        $error_message = "Usuário não encontrado.";
     }
     $stmt->close();
 }
@@ -41,77 +40,68 @@ $conn->close();
 <head>
     <title>Login</title>
     <style>
-        /* Reset básico */
-        body, h2, p, a, input, button {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e90ff;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            box-sizing: border-box;
-        }
-
-        body {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
-            color: #333;
+            height: 100vh;
         }
 
-        .container {
-            background: #fff;
+        .container.login {
+            background-color: #ffffff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             width: 300px;
             text-align: center;
         }
 
         .container h2 {
             margin-bottom: 20px;
-            font-size: 24px;
-            color: #4e54c8;
-        }
-
-        .container p {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 15px;
+            color: #1e90ff;
         }
 
         .container input {
-            width: 100%;
+            width: 90%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
 
         .container button {
             width: 100%;
             padding: 10px;
-            background: #4e54c8;
-            color: #fff;
+            background-color: #1e90ff;
             border: none;
+            color: white;
+            font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
         }
 
         .container button:hover {
-            background: #3c3da6;
+            background-color: #005cbf;
         }
 
         .container a {
             display: block;
-            margin-top: 15px;
-            color: #4e54c8;
+            margin-top: 10px;
+            color: #1e90ff;
             text-decoration: none;
-            font-size: 14px;
         }
 
         .container a:hover {
             text-decoration: underline;
+        }
+
+        .container p {
+            color: red;
+            margin: 10px 0;
         }
     </style>
 </head>
