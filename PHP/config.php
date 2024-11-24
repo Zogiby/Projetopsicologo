@@ -1,17 +1,15 @@
 <?php
+    $usuario = 'luan';
+    $senha = '123';
+    $database = 'login1';
+    $host = 'localhost';
 
-$servername = "127.0.0.1";
-$username = "luan";
-$password = "123";
-$dbname = "login";
+    $mysqli = new mysqli($host, $usuario, $senha, $database);
 
-// Criar conexãoo
-$conn = new mysqli($servername, $username, $password, $dbname);
+    if($mysqli->error){
+        die("Falha ao conectar ao Banco de Dados: " . $mysqli->error);
+    }
 
-// Verificar conexão
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
-}
 ?>
 
 

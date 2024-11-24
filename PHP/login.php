@@ -1,41 +1,44 @@
 <?php
-include_once 'config.php';
-session_start();
 
-$error_message = "";
+include('config.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+if (isset($_POST['usuario']) || isset($_POST['senha'])) {
 
-    $sql = "SELECT id, username, password FROM Users WHERE username = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $username, $hashed_password);
-        $stmt->fetch();
-        if (password_verify($password, $hashed_password)) {
-            $_SESSION['user_id'] = $id;
-            $_SESSION['username'] = $username;
-            header("Location: menu.php");
-            exit();
-        } else {
-            $error_message = "Senha incorreta.";
-        }
+    if (strlen($_POST['usuario']) == 0) {
+        echo "Preencha seu e-mail";
+    } else if (strlen($_POST['senha']) == 0) {
+        echo "Preencha sua senha";
     } else {
-        $error_message = "Usuário não encontrado.";
+
+        $usuario = $mysqli->real_escape_string($_POST['usuario']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
+
+        $sql_code = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha' ";
+        $sql_query = $mysqli->query($sql_code) or die("Falha  na execução do código" . $mysqli->error);
+
+        $quantidade = $sql_query->num_rows;
+
+        if ($quantidade == 1) {
+            $usuario = $sql_query->fetch_assoc();
+
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+
+            header("location: agendamento.php");
+        } else {
+            echo "Falha ao logar! Usuário ou senha incorretos";
+        }
     }
-    $stmt->close();
 }
 
-$conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -51,80 +54,91 @@ $conn->close();
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: #004d40;
         }
 
-        .container {
-            background: #ffffff;
+        .login-container {
+            background-color: #ffffff;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
             width: 100%;
             max-width: 400px;
-            padding: 20px;
-            box-sizing: border-box;
             text-align: center;
         }
 
-        .container h2 {
-            color: #007bb5;
+        h1 {
+            color: #00796b;
+            font-size: 28px;
             margin-bottom: 20px;
         }
 
-        .container p {
-            color: red;
-            font-size: 14px;
-            margin: 10px 0;
+        label {
+            font-size: 16px;
+            color: #00796b;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        .container input {
+        input[type="text"],
+        input[type="password"] {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            border: 1px solid #00796b;
             border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bb5;
-            color: #ffffff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
             font-size: 16px;
         }
 
-        .container button:hover {
-            background-color: #005f87;
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
         }
 
-        .container a {
-            display: block;
-            margin-top: 10px;
-            text-decoration: none;
-            color: #007bb5;
+        button:hover {
+            background-color: #004d40;
+        }
+
+        p {
             font-size: 14px;
+            color: #00796b;
         }
 
-        .container a:hover {
+        a {
+            text-decoration: none;
+            color: #00796b;
+            font-weight: bold;
+        }
+
+        a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h2>Login</h2>
-        <?php if ($error_message): ?>
-        <p><?php echo $error_message; ?></p>
-        <?php endif; ?>
-        <form method="post" action="">
-            <input type="text" name="username" placeholder="Nome de Usuário" required>
-            <input type="password" name="password" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
+    <div class="login-container">
+        <h1>Painel Admin</h1>
+        <form action="" method="post">
+            <p>
+                <label for="usuario">Usuário</label>
+                <input type="text" name="usuario" id="usuario">
+            </p>
+
+            <p>
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha">
+            </p>
+
+            <p>
+                <button type="submit">Entrar</button>
+            </p>
         </form>
-        <a href="register.php">Cadastrar Usuário</a>
     </div>
 </body>
 
