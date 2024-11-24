@@ -1,133 +1,144 @@
-
 <?php
-include_once "config.php";
-session_start();
 
-$error_message = "";
- 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['nome'];
-    $password = $_POST['password'];
+include('config.php');
 
-    $sql = "SELECT id, username, password FROM Users WHERE username = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->store_result();
+if (isset($_POST['usuario']) || isset($_POST['senha'])) {
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $username, $hashed_password);
-        $stmt->fetch();
-        if (password_verify($password, $hashed_password)) {
-            $_SESSION['user_id'] = $id;
-            $_SESSION['username'] = $username;
-            header("Location: menu.php");
-            exit();
-        } else {
-            $error_message = "Senha incorreta.";
-        }
+    if (strlen($_POST['usuario']) == 0) {
+        echo "Preencha seu e-mail";
+    } else if (strlen($_POST['senha']) == 0) {
+        echo "Preencha sua senha";
     } else {
-        $error_message = " Usuário não encontrado.";
+
+        $usuario = $mysqli->real_escape_string($_POST['usuario']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
+
+        $sql_code = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha' ";
+        $sql_query = $mysqli->query($sql_code) or die("Falha  na execução do código" . $mysqli->error);
+
+        $quantidade = $sql_query->num_rows;
+
+        if ($quantidade == 1) {
+            $usuario = $sql_query->fetch_assoc();
+
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+
+            header("location: agendamento.php");
+        } else {
+            echo "Falha ao logar! Usuário ou senha incorretos";
+        }
     }
-    $stmt->close();
 }
 
-$conn->close();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-        /* Reset básico */
-        body, h2, p, a, input, button {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            box-sizing: border-box;
-        }
-
-        body {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #4e54c8, #8f94fb);
-            color: #333;
+            height: 100vh;
+            color: #004d40;
         }
 
-        .container {
-            background: #fff;
-            padding: 20px;
+        .login-container {
+            background-color: #ffffff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
             text-align: center;
         }
 
-        .container h2 {
+        h1 {
+            color: #00796b;
+            font-size: 28px;
             margin-bottom: 20px;
-            font-size: 24px;
-            color: #4e54c8;
         }
 
-        .container p {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 15px;
+        label {
+            font-size: 16px;
+            color: #00796b;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        .container input {
+        input[type="text"],
+        input[type="password"] {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .container button {
-            width: 100%;
-            padding: 10px;
-            background: #4e54c8;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            margin-bottom: 20px;
+            border: 1px solid #00796b;
+            border-radius: 4px;
             font-size: 16px;
         }
 
-        .container button:hover {
-            background: #3c3da6;
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
         }
 
-        .container a {
-            display: block;
-            margin-top: 15px;
-            color: #4e54c8;
-            text-decoration: none;
+        button:hover {
+            background-color: #004d40;
+        }
+
+        p {
             font-size: 14px;
+            color: #00796b;
         }
 
-        .container a:hover {
+        a {
+            text-decoration: none;
+            color: #00796b;
+            font-weight: bold;
+        }
+
+        a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <div class="container login">
-        <h2>Login</h2>
-        <?php if ($error_message): ?>
-        <p><?php echo $error_message; ?></p>
-        <?php endif; ?>
-        <form method="post" action="login.php">
-            <input type="text" name="username" placeholder="Nome de Usuário" required>
-            <input type="password" name="password" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
+    <div class="login-container">
+        <h1>Painel Admin</h1>
+        <form action="" method="post">
+            <p>
+                <label for="usuario">Usuário</label>
+                <input type="text" name="usuario" id="usuario">
+            </p>
+
+            <p>
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha">
+            </p>
+
+            <p>
+                <button type="submit">Entrar</button>
+            </p>
         </form>
-        <a href="register.php">Cadastrar Usuário</a>
     </div>
 </body>
 
