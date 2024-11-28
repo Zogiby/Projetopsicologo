@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
     $stmt->store_result();
 
+<<<<<<< Updated upstream
     if ($stmt->num_rows > 0) {
         $stmt->bind_result($id, $username, $hashed_password);
         $stmt->fetch();
@@ -23,6 +24,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $username;
             header("Location: menu.php");
             exit();
+=======
+    if (strlen($_POST['usuario']) == 0) {
+        echo "Preencha seu e-mail";
+    } else if (strlen($_POST['senha']) == 0) {
+        echo "Preencha sua senha";
+    } else {
+
+        $usuario = $mysqli->real_escape_string($_POST['usuario']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
+
+        $sql_code = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha' ";
+        $sql_query = $mysqli->query($sql_code) or die("Falha  na execução do código" . $mysqli->error);
+
+        $quantidade = $sql_query->num_rows;
+
+        if ($quantidade == 1) {
+            $usuario = $sql_query->fetch_assoc();
+
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+
+            header("location: painel.php");
+>>>>>>> Stashed changes
         } else {
             $error_message = "Senha incorreta.";
         }
