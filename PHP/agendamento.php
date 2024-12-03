@@ -74,8 +74,22 @@ include('seg.php');
     <div class="container">
         <h1>Painel Admin</h1>
         <p>Bem-vindo, <?php echo $_SESSION['nome']; ?> </p>
-        <p> <a href="sair.php">Sair</a> </p>
-    </div>
-</body>
 
+        <a href="?pg=lista_agen">Lista de Agendamentos</a>
+        <a href="?pg=cadastra_agen">Cadastrar novo Agendamento</a></h3>
+
+        <p> <a href="login.php">Sair</a> </p>
+    </div>
+
+</body>
 </html>
+
+<?php
+
+if(empty($_SERVER['QUERY_STRING'])){
+    $var = "conteudo.php";
+}else{
+    $pg = $_GET['pg'];
+    include_once("$pg.php");
+}
+?>
