@@ -1,70 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamento - Psicólogo Alex Cavalcante</title>
-    <link rel="stylesheet" href="css2.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-  </head>
-  <body>
+    <link rel="stylesheet" href="css2.css">
+    <link rel="stylesheet" href="css4.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
     <header>
-      <h1>Psicólogo Clínico Alex Cavalcante</h1>
-      <nav>
-        <ul>
-          <li><a href="#agendamento" class="botao">Agendamento</a></li>
-          <li><a href="site.html" class="botao">Home</a></li>
-        </ul>
-      </nav>
+        <h1>Psicólogo Clínico Alex Cavalcante</h1>
+        <nav>
+            <ul>
+                <li><a href="#agendamento" class="botao">Agendamento</a></li>
+                <li><a href="site.html" class="botao">Home</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <div class="caixa-texto">
+        <h3>Bem-vindo à página de agendamento!</h3>
+        <h3>Ficamos muito felizes em poder ajudá-lo a marcar um momento para cuidar de sua saúde mental. Para sua
+            comodidade, disponibilizamos horários flexíveis ao longo do dia, divididos entre manhã e tarde.</h3>
+        <h3>Na parte da <strong>manhã</strong>, você pode escolher entre os seguintes horários:</h3>
+        <h3>- 7:00 ; 9:00 ; 11:00</h3>
+        <h3>Já no período da <strong>tarde</strong>, temos as opções:</h3>
+        <h3>- 13:00 ; 15:00 ; 18:00</h3>
+        <h3>Por favor, escolha o horário que melhor se adequa à sua rotina. Nosso compromisso é oferecer um atendimento
+            acolhedor e profissional, respeitando sua agenda e necessidades.</h3>
+        <h3>Caso tenha dúvidas ou precise de ajuda para finalizar seu agendamento, estamos à disposição para ajudá-lo.
+            Será um prazer receber você!</h3>
+    </div>
+
     <main>
-      <div class="caixa-formulario" id="agendamento">
-        <h2>Faça seu Agendamento</h2>
-        <form action="PHP/agendamentos.php" method="post">
-          <label for="nome">Nome:</label>
-          <input type="text" name="nome" required />
+        <div class="caixa-formulario" id="agendamento">
+            <h2>Faça seu Agendamento</h2>
+            <form action="php/agendamentos.php" method="POST">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
 
-          <label for="idade">Idade:</label>
-          <input type="number" name="idade" min="0" required />
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade" min="0" required>
 
-          <label for="data">Data para agendamento:</label>
-          <input type="date" name="dia" required />
+                <label for="data">Data para agendamento:</label>
+                <input type="date" id="dia" name="dia" required>
 
-          <label for="horario">Horário:</label>
-          <input type="time" name="horario" required />
+                <label for="horario">Horário:</label>
+                <select id="horario" name="horario" required>
+                    <option value="" disabled selected>Escolha um horário</option>
+                    <optgroup label="Manhã">
+                        <option value="07:00">7:00</option>
+                        <option value="09:00">9:00</option>
+                        <option value="11:00">11:00</option>
+                    </optgroup>
+                    <optgroup label="Tarde">
+                        <option value="13:00">13:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="18:00">18:00</option>
+                    </optgroup>
+                </select>
 
-          <label for="telefone">Telefone:</label>
-          <input
-            type="tel"
-            name="telefone"
-            pattern="[0-9]{10,11}"
-            placeholder="Apenas números"
-            required
-          />
 
-          <button type="submit">Enviar</button>
-        </form>
-      </div>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" pattern="[0-9]{10,11}" placeholder="Apenas números" required>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </main>
 
     <footer>
-      <p>
-        Instagram:
-        <a href="https://instagram.com/psico07" target="_blank"
-          ><i class="fab fa-instagram"></i> @psico07</a
-        >
-      </p>
-      <p>
-        WhatsApp:
-        <a href="tel:+5583999999999"
-          ><i class="fab fa-whatsapp"></i> (83) 99999-9999</a
-        >
-      </p>
-      <p>© 2024 Psicólogo. Todos os direitos reservados.</p>
+        <p>Instagram: <a href="https://instagram.com/psico07" target="_blank"><i class="fab fa-instagram"></i>
+                @psico07</a></p>
+        <p>WhatsApp: <a href="tel:+5583999999999"><i class="fab fa-whatsapp"></i> (83) 99999-9999</a></p>
+        <p>© 2024 Psicólogo. Todos os direitos reservados.</p>
     </footer>
-  </body>
+</body>
+
 </html>

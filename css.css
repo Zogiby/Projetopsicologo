@@ -9,50 +9,36 @@
 body {
     font-family: 'Lora', serif;
     line-height: 1.6;
-    background: linear-gradient(to right, #f4f4f4, #e6e9f0); 
+    background: linear-gradient(to right, #f4f4f4, #e6e9f0);
     color: #008cff;
-    padding-bottom: 50px; 
+    padding-bottom: 50px;
 }
 
 /* Estilo do header */
 header {
-    background: linear-gradient(135deg, #008cff, #004aad); 
+    background: linear-gradient(135deg, #008cff, #004aad);
     color: white;
-    padding: 20px 0; 
+    padding: 20px 0;
     text-align: center;
     background-size: cover;
     background-position: center;
 }
 
-/* Animação para o nome do psicólogo */
-@keyframes slideIn {
-    0% {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 header .titulo {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem; 
+    font-size: 2rem;
     font-weight: bold;
-    color: white; 
     letter-spacing: 3px;
-    animation: slideIn 1s ease-out forwards; 
+    animation: slideIn 1s ease-out forwards;
 }
 
 header h1 {
     font-size: 4rem;
-    font-weight: 70px;
-    color: white; 
     margin-top: 10px;
-    animation: slideIn 1s ease-out forwards 0.5s; 
+    animation: slideIn 1s ease-out forwards 0.5s;
 }
 
+/* Estilo do menu de navegação */
 nav ul {
     list-style: none;
     padding: 10px 0;
@@ -67,16 +53,26 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 12px 30px;  
+    padding: 12px 30px;
     background-color: #008cff;
     transition: all 0.3s ease;
     font-size: 1.1rem;
-    border-radius: 0; 
 }
 
 nav ul li a:hover {
     background-color: #004aad;
     transform: scale(1.1);
+}
+
+/* Botão de login com destaque */
+nav ul li a.login-button {
+    background-color: #4CAF50;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+nav ul li a.login-button:hover {
+    background-color: #388E3C;
 }
 
 /* Estilo das seções principais */
@@ -107,27 +103,15 @@ main p {
     color: #555;
 }
 
-/* Estilo do rodapé */
-footer {
-    background: #000000;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    bottom: 0;
-    width: 100%;
 
+/* Animações */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
-
-footer a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Adicionando fontes e ícones */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');

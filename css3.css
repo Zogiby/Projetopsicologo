@@ -77,7 +77,6 @@ body {
     line-height: 1.6;
     background: linear-gradient(to right, #f4f4f4, #e6e9f0); /* Gradiente suave */
     color: #008cff;
-    padding-bottom: 50px; /* Para evitar que o conteúdo fique escondido atrás do rodapé fixo */
 }
 
 /* Estilo do header */

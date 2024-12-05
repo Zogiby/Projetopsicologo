@@ -6,6 +6,8 @@
     <title>Psicólogo Clínico Alex Cavalcante</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="style_site.css">
+
 </head>
 <body>
     <header>
@@ -16,60 +18,60 @@
         <nav>
             <ul>
                 <li><a href="agendamento.html" class="button">Agendamento</a></li>
-                <li><a href="quemsomos.html" class="button">Quem Somos </a></li>
+                <li><a href="quemsomos.html" class="button">Quem Somos</a></li>
+                <li><a href="PHP/login.php" class="button login-button">Login</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
-            <h2>Agende a sua consulta online </h2>
-            <p>Faça a busca do seu Psicólogo de forma fácil e segura, e encontre o profissional adequado para as suas necessidades pertinho de você. Você escolhe o profissional, marca sua consulta e realiza o pagamento online!</p>
+        <section id="sobre" class="flex-container">
+            <img src="./IMAGENS/agendamento.png" alt="Sobre" class="imagem-sobre" />
+            <div class="texto-sobre">
+                <h2>Agende a sua consulta online</h2>
+                <p>Faça a busca do seu Psicólogo de forma fácil e segura, e encontre o profissional adequado para as suas necessidades pertinho de você. Você escolhe o profissional, marca sua consulta e realiza o pagamento online!</p>
         </section>
 
-        <section>
+        <section id="areas">
             <h2>Áreas de Atuação</h2>
-            <p>Ofereço atendimento psicológico em diversas áreas, ajudando os pacientes a superar desafios emocionais e melhorar seu bem-estar:</p>
-            <ul>
-                <strong>Ansiedade e Estresse</strong>: Técnicas para lidar com o estresse e reduzir os sintomas da ansiedade.<br>
-                <strong>Depressão</strong>: Apoio na superação da depressão e no desenvolvimento de estratégias de enfrentamento.<br>
-                <strong>Relacionamentos</strong>: Orientação para melhorar a comunicação e resolver conflitos em relacionamentos pessoais e profissionais.<br>
-                <strong>Orientação Profissional</strong>: Ajudando a tomar decisões relacionadas à carreira, mudanças de vida e novos desafios.<br>
-            </ul>
+            <div class="card">
+                <img src="./IMAGENS/ansiedade e estresse.png" alt="Ansiedade" />
+                <div class="card-text">
+                    <h3>Ansiedade</h3>
+                    <p>Trabalho com pacientes que sofrem de transtornos de ansiedade, ajudando-os a entender suas emoções e
+                        a desenvolver estratégias para lidar com a ansiedade no dia a dia.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./IMAGENS/depressão.png" alt="Depressão" />
+                <div class="card-text">
+                    <h3>Depressão</h3>
+                    <p>Ofereço suporte a indivíduos que enfrentam a depressão, proporcionando um espaço seguro para explorar
+                        sentimentos e encontrar caminhos para a recuperação.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./IMAGENS/relacionamentos.png" alt="Relacionamentos" />
+                <div class="card-text">
+                    <h3>Relacionamentos</h3>
+                    <p>Ajudo casais e indivíduos a melhorar suas habilidades de comunicação e a resolver conflitos,
+                        promovendo relacionamentos mais saudáveis e satisfatórios.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./IMAGENS/desenvolvimento pessoal.png" alt="Desenvolvimento Pessoal" />
+                <div class="card-text">
+                    <h3>Desenvolvimento Pessoal</h3>
+                    <p>Trabalho com pessoas que desejam se conhecer melhor e desenvolver habilidades emocionais, promovendo
+                        o autoconhecimento e a autoaceitação.</p>
+                </div>
+            </div>
         </section>
-
-        <section>
-            <h2>Terapia para Ansiedade e Depressão</h2>
-            <p>A terapia para ansiedade e depressão oferece apoio psicológico para quem enfrenta esses transtornos. Com técnicas específicas, o psicólogo ajuda o paciente a gerenciar os sintomas, melhorar o controle emocional e desenvolver estratégias para uma vida mais equilibrada e saudável.</p>
-        </section>
-
-        <section>
-            <h2>Áreas de Atuação</h2>
-            <p>Ofereço atendimento psicológico em diversas áreas, ajudando os pacientes a superar desafios emocionais e melhorar seu bem-estar:</p>
-            <ul>
-                <strong>Ansiedade e Estresse</strong>: Técnicas para lidar com o estresse e reduzir os sintomas da ansiedade.<br>
-                <strong>Depressão</strong>: Apoio na superação da depressão e no desenvolvimento de estratégias de enfrentamento.<br>
-                <strong>Relacionamentos</strong>: Orientação para melhorar a comunicação e resolver conflitos em relacionamentos pessoais e profissionais.<br>
-                <strong>Orientação Profissional</strong>: Ajudando a tomar decisões relacionadas à carreira, mudanças de vida e novos desafios.<br>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Áreas de Atuação</h2>
-            <p>Ofereço atendimento psicológico em diversas áreas, ajudando os pacientes a superar desafios emocionais e melhorar seu bem-estar:</p>
-            <ul>
-                <strong>Ansiedade e Estresse</strong>: Técnicas para lidar com o estresse e reduzir os sintomas da ansiedade.<br>
-                <strong>Depressão</strong>: Apoio na superação da depressão e no desenvolvimento de estratégias de enfrentamento.<br>
-                <strong>Relacionamentos</strong>: Orientação para melhorar a comunicação e resolver conflitos em relacionamentos pessoais e profissionais.<br>
-                <strong>Orientação Profissional</strong>: Ajudando a tomar decisões relacionadas à carreira, mudanças de vida e novos desafios.<br>
-            </ul>
-        </section>
-        
     </main>
 
     <footer>
-        <p>Instagram: <a href="https://instagram.com/psico07" target="_blank"><i class="fab fa-instagram"></i> @psico07</a></p>
-        <p>WhatsApp: <a href="tel:+5583999999999"><i class="fab fa-whatsapp"></i> (83) 99999-9999</a></p>
+        <p>Instagram: <a href="https://instagram.com/psico07" target="_blank">@psico07</a></p>
+        <p>WhatsApp: <a href="tel:+5583999999999">(83) 99999-9999</a></p>
         <p>© 2024 Psicólogo. Todos os direitos reservados.</p>
     </footer>
 </body>
